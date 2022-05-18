@@ -77,3 +77,16 @@ INNER JOIN `teachers` ON `course_teacher`.`teacher_id` = `teachers`.`id`
 WHERE `departments`.`name` = "Dipartimento di Matematica";
 
 ```
+---
+
+# 6
+
+```sql
+
+SELECT COUNT(*) AS esami_sostenuti, `exam_student`.`student_id`, `exam_student`.`exam_id`  
+FROM `students`
+INNER JOIN `exam_student` ON `students`.`id` = `exam_student`.`student_id`
+WHERE `exam_student`.`vote` < 18
+GROUP BY `exam_student`.`student_id` , `exam_student`.`exam_id`;
+
+```
